@@ -1,0 +1,123 @@
+{
+  "target" : "bongard",
+  "background" : [
+    "element_train",
+    "circle_train",
+    "rectangle_train",
+    "triangle_train",
+    "triangle_up_train",
+    "triangle_down_train",
+    "east_train",
+    "north_train",
+    "inside_train"
+  ],
+  "test" : {
+    "file" : "../sample_data/bongard/th3/1000/fold_0/bongard_test",
+    "num_positive" : 100
+  },
+  "relations" : [
+    {
+      "name" : "bongard",
+      "num_positive" : 901,
+      "file" : "../sample_data/bongard/th3/1000/fold_0/bongard_train_5",
+      "attributes" : [
+        {
+          "domain_type" : 0
+        }
+      ]
+    },
+    {
+      "name" : "element_train",
+      "file" : "../sample_data/bongard/th3/1000/fold_0/element_merge",
+      "attributes" : [
+        {
+          "domain_type" : 0
+        },
+        {
+          "domain_type" : 1
+        }
+      ]
+    },
+    {
+      "name" : "circle_train",
+      "file" : "../sample_data/bongard/th3/1000/fold_0/circle_merge",
+      "attributes" : [
+        {
+          "domain_type" : 1
+        }
+      ]
+    },
+    {
+      "name" : "rectangle_train",
+      "file" : "../sample_data/bongard/th3/1000/fold_0/rectangle_merge",
+      "attributes" : [
+        {
+          "domain_type" : 1
+        }
+      ]
+    },
+    {
+      "name" : "triangle_train",
+      "file" : "../sample_data/bongard/th3/1000/fold_0/triangle_merge",
+      "attributes" : [
+        {
+          "domain_type" : 1
+        }
+      ]
+    },
+    {
+      "name" : "triangle_up_train",
+      "file" : "../sample_data/bongard/th3/1000/fold_0/triangle_up_merge",
+      "attributes" : [
+        {
+          "domain_type" : 1
+        }
+      ]
+    },
+    {
+      "name" : "triangle_down_train",
+      "file" : "../sample_data/bongard/th3/1000/fold_0/triangle_down_merge",
+      "attributes" : [
+        {
+          "domain_type" : 1
+        }
+      ]
+    },
+    {
+      "name" : "east_train",
+      "file" : "../sample_data/bongard/th3/1000/fold_0/east_merge",
+      "attributes" : [
+        {
+          "domain_type" : 1
+        },
+        {
+          "domain_type" : 1
+        }
+      ]
+    },
+    {
+      "name" : "north_train",
+      "file" : "../sample_data/bongard/th3/1000/fold_0/north_merge",
+      "attributes" : [
+        {
+          "domain_type" : 1
+        },
+        {
+          "domain_type" : 1
+        }
+      ]
+    },
+    {
+      "name" : "inside_train",
+      "file" : "../sample_data/bongard/th3/1000/fold_0/inside_merge",
+      "attributes" : [
+        {
+          "domain_type" : 1
+        },
+        {
+          "domain_type" : 1
+        }
+      ]
+    }
+  ]
+}

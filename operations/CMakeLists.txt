@@ -1,0 +1,157 @@
+include_directories(${Boost_INCLUDE_DIRS})
+
+add_library(quickfoil_operations_BuildHashTable
+            BuildHashTable.cpp
+            BuildHashTable.hpp)
+add_library(quickfoil_operations_CountAggregator
+            CountAggregator.cpp
+            CountAggregator.hpp)
+add_library(quickfoil_operations_Filter
+            Filter.cpp
+            Filter.hpp)
+add_library(quickfoil_operations_HashJoin
+            HashJoin.cpp
+            HashJoin.hpp)
+add_library(quickfoil_operations_LeftSemiJoin
+            LeftSemiJoin.cpp
+            LeftSemiJoin.hpp)
+add_library(quickfoil_operations_MultiColumnHashJoin
+            MultiColumnHashJoin.cpp
+            MultiColumnHashJoin.hpp)
+add_library(quickfoil_operations_PartitionAssigner
+            PartitionAssigner.cpp
+            PartitionAssigner.hpp)
+add_library(quickfoil_operations_RadixPartition RadixPartition.cpp RadixPartition.hpp)
+add_library(quickfoil_operations_RightSemiJoin ../empty_src.cpp RightSemiJoin.hpp)
+add_library(quickfoil_operations_SemiJoin ../empty_src.cpp SemiJoin.hpp)
+add_library(quickfoil_operations_SemiJoinFactory SemiJoinFactory.cpp SemiJoinFactory.hpp)
+
+target_link_libraries(quickfoil_operations_BuildHashTable
+                      gflags_nothreads-static
+                      glog
+                      quickfoil_expressions_AttributeReference
+                      quickfoil_operations_SemiJoin
+                      quickfoil_schema_TypeDefs
+                      quickfoil_storage_FoilHashTable
+                      quickfoil_storage_PartitionTuple
+                      quickfoil_storage_TableView
+                      quickfoil_utility_BitVector
+                      quickfoil_utility_BitVectorIterator
+                      quickfoil_utility_Hash
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_operations_CountAggregator
+                      glog
+                      quickfoil_learner_CandidateLiteralInfo
+                      quickfoil_learner_PredicateEvaluationPlan
+                      quickfoil_learner_QuickFoilTimer
+                      quickfoil_operations_Filter
+                      quickfoil_operations_HashJoin
+                      quickfoil_utility_BitVector
+                      quickfoil_utility_BitVectorBuilder
+                      quickfoil_utility_BitVectorIterator
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_operations_Filter
+                      quickfoil_expressions_ComparisonPredicate
+                      quickfoil_learner_QuickFoilTimer
+                      quickfoil_operations_HashJoin
+                      quickfoil_utility_BitVector
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_operations_HashJoin
+                      gflags_nothreads-static
+                      quickfoil_expressions_OperatorTraits
+                      quickfoil_learner_QuickFoilTimer
+                      quickfoil_operations_PartitionAssigner
+                      quickfoil_schema_TypeDefs
+                      quickfoil_storage_TableView
+                      quickfoil_utility_Hash
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_operations_LeftSemiJoin
+                      gflags_nothreads-static
+                      quickfoil_operations_SemiJoin
+                      quickfoil_storage_FoilHashTable
+                      quickfoil_storage_TableView
+                      quickfoil_utility_BitVector
+                      quickfoil_utility_BitVectorBuilder
+                      quickfoil_utility_Hash
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_operations_MultiColumnHashJoin
+                      gflags_nothreads-static
+                      glog
+                      quickfoil_expressions_AttributeReference
+                      quickfoil_learner_QuickFoilTimer
+                      quickfoil_memory_Buffer
+                      quickfoil_operations_BuildHashTable
+                      quickfoil_storage_FoilHashTable
+                      quickfoil_storage_TableView
+                      quickfoil_types_TypeID
+                      quickfoil_types_TypeTraits
+                      quickfoil_utility_Hash
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_operations_PartitionAssigner
+                      gflags_nothreads-static
+                      quickfoil_memory_Buffer
+                      quickfoil_learner_QuickFoilTimer
+                      quickfoil_storage_PartitionTuple
+                      quickfoil_storage_TableView
+                      quickfoil_types_TypeID
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_operations_RadixPartition
+                      gflags_nothreads-static
+                      glog
+                      quickfoil_memory_Buffer
+                      quickfoil_memory_MemUtil
+                      quickfoil_storage_PartitionTuple
+                      quickfoil_storage_TableView
+                      quickfoil_types_TypeID
+                      quickfoil_utility_Hash
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_operations_RightSemiJoin
+                      quickfoil_operations_SemiJoin
+                      quickfoil_schema_TypeDefs
+                      quickfoil_storage_FoilHashTable
+                      quickfoil_utility_BitVector
+                      quickfoil_utility_Hash
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_operations_SemiJoin
+                      quickfoil_expressions_AttributeReference
+                      quickfoil_memory_Buffer
+                      quickfoil_schema_TypeDefs
+                      quickfoil_storage_TableView
+                      quickfoil_types_TypeID
+                      quickfoil_types_TypeTraits
+                      quickfoil_utility_Hash
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_operations_SemiJoinFactory
+                      glog
+                      quickfoil_operations_BuildHashTable
+                      quickfoil_operations_LeftSemiJoin
+                      quickfoil_operations_RightSemiJoin
+                      quickfoil_storage_TableView
+                      quickfoil_utility_Vector)
+
+add_executable(quickfoil_operations_RadixPartition_test RadixPartition_test.cpp)
+target_link_libraries(quickfoil_operations_RadixPartition_test
+                      gflags_nothreads-static
+                      glog
+                      gtest
+                      gtest_main
+                      quickfoil_memory_Buffer
+                      quickfoil_operations_RadixPartition
+                      quickfoil_storage_TableView
+                      quickfoil_types_Type
+                      quickfoil_types_TypeID
+                      quickfoil_types_TypeTraits
+                      quickfoil_utility_Macros
+                      quickfoil_utility_StringUtil
+                      quickfoil_utility_Vector)
+
+add_test(quickfoil_operations_RadixPartition_test quickfoil_operations_RadixPartition_test)

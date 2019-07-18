@@ -1,0 +1,27 @@
+add_library(quickfoil_storage_FoilHashTable
+            FoilHashTable.cpp
+            FoilHashTable.hpp)
+add_library(quickfoil_storage_PartitionTuple
+            ../empty_src.cpp
+            PartitionTuple.hpp)
+add_library(quickfoil_storage_TableView
+            ../empty_src.cpp
+            TableView.hpp)
+
+target_link_libraries(quickfoil_storage_PartitionTuple
+                      glog
+                      quickfoil_schema_TypeDefs
+                      quickfoil_types_TypeID
+                      quickfoil_types_TypeTraits)
+target_link_libraries(quickfoil_storage_FoilHashTable
+                      glog
+                      quickfoil_memory_Buffer
+                      quickfoil_types_TypeTraits
+                      quickfoil_utility_Macros)
+target_link_libraries(quickfoil_storage_TableView
+                      glog
+                      quickfoil_memory_Buffer
+                      quickfoil_schema_TypeDefs
+                      quickfoil_storage_FoilHashTable
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)

@@ -1,0 +1,150 @@
+add_library(quickfoil_learner_CandidateLiteralEnumerator
+            CandidateLiteralEnumerator.cpp
+            CandidateLiteralEnumerator.hpp)
+add_library(quickfoil_learner_CandidateLiteralEvaluator
+            CandidateLiteralEvaluator.cpp
+            CandidateLiteralEvaluator.hpp)
+add_library(quickfoil_learner_CandidateLiteralInfo
+            ../empty_src.cpp
+            CandidateLiteralInfo.hpp)
+add_library(quickfoil_learner_LiteralSearchStats
+            ../empty_src.cpp
+            LiteralSearchStats.hpp)
+add_library(quickfoil_learner_LiteralSelector
+            LiteralSelector.cpp
+            LiteralSelector.hpp)
+add_library(quickfoil_learner_PredicateEvaluationPlan
+            ../empty_src.cpp
+            PredicateEvaluationPlan.hpp)
+add_library(quickfoil_learner_QuickFoil
+            QuickFoil.cpp
+            QuickFoil.hpp
+            QuickFoilState.hpp)
+add_library(quickfoil_learner_QuickFoilState
+            ../empty_src.cpp
+            QuickFoilState.hpp)
+add_library(quickfoil_learner_QuickFoilTestRunner
+            QuickFoilTestRunner.cpp
+            QuickFoilTestRunner.hpp)
+add_library(quickfoil_learner_QuickFoilTimer
+            QuickFoilTimer.cpp
+            QuickFoilTimer.hpp)
+
+target_link_libraries(quickfoil_learner_CandidateLiteralEnumerator
+                      glog
+                      quickfoil_schema_FoilClause
+                      quickfoil_schema_FoilLiteral
+                      quickfoil_schema_FoilPredicate
+                      quickfoil_schema_FoilVariable
+                      quickfoil_utility_Macros
+                      quickfoil_utility_StringUtil
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_learner_CandidateLiteralEvaluator
+                      glog
+                      quickfoil_expressions_ComparisonPredicate
+                      quickfoil_learner_CandidateLiteralInfo
+                      quickfoil_learner_PredicateEvaluationPlan
+                      quickfoil_learner_QuickFoilTimer
+                      quickfoil_operations_CountAggregator
+                      quickfoil_operations_Filter
+                      quickfoil_operations_HashJoin
+                      quickfoil_operations_PartitionAssigner
+                      quickfoil_operations_RadixPartition
+                      quickfoil_schema_FoilClause
+                      quickfoil_schema_FoilLiteral
+                      quickfoil_schema_FoilPredicate
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_learner_CandidateLiteralInfo 
+                      quickfoil_schema_TypeDefs)
+target_link_libraries(quickfoil_learner_LiteralSearchStats
+                      quickfoil_schema_FoilLiteral
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_learner_LiteralSelector
+                      gflags_nothreads-static
+                      glog
+                      quickfoil_memory_MemoryUsage
+                      quickfoil_learner_CandidateLiteralInfo
+                      quickfoil_operations_BuildHashTable
+                      quickfoil_operations_SemiJoin
+                      quickfoil_operations_SemiJoinFactory
+                      quickfoil_schema_FoilClause
+                      quickfoil_schema_FoilLiteral
+                      quickfoil_schema_TypeDefs
+                      quickfoil_storage_FoilHashTable
+                      quickfoil_storage_TableView
+                      quickfoil_utility_ElementDeleter
+                      quickfoil_utility_Macros)
+target_link_libraries(quickfoil_learner_PredicateEvaluationPlan
+                      quickfoil_utility_BitVector
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_learner_QuickFoil
+                      gflags_nothreads-static
+                      glog
+                      quickfoil_expressions_AttributeReference
+                      quickfoil_learner_CandidateLiteralEvaluator
+                      quickfoil_learner_CandidateLiteralEnumerator
+                      quickfoil_learner_CandidateLiteralInfo
+                      quickfoil_learner_LiteralSearchStats
+                      quickfoil_learner_LiteralSelector
+                      quickfoil_learner_QuickFoilState
+                      quickfoil_operations_BuildHashTable
+                      quickfoil_operations_MultiColumnHashJoin
+                      quickfoil_operations_SemiJoin
+                      quickfoil_operations_SemiJoinFactory
+                      quickfoil_schema_FoilClause
+                      quickfoil_schema_FoilLiteral
+                      quickfoil_schema_FoilPredicate
+                      quickfoil_schema_FoilVariable
+                      quickfoil_schema_TypeDefs
+                      quickfoil_storage_TableView
+                      quickfoil_types_TypeID
+                      quickfoil_types_TypeTraits
+                      quickfoil_utility_ElementDeleter
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_learner_QuickFoilState
+                      glog
+                      quickfoil_learner_LiteralSearchStats
+                      quickfoil_learner_LiteralSelector
+                      quickfoil_schema_FoilClause
+                      quickfoil_storage_TableView
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_learner_QuickFoilTestRunner
+                      glog
+                      quickfoil_expressions_AttributeReference
+                      quickfoil_operations_BuildHashTable
+                      quickfoil_operations_MultiColumnHashJoin
+                      quickfoil_operations_SemiJoin
+                      quickfoil_operations_SemiJoinFactory
+                      quickfoil_schema_FoilClause
+                      quickfoil_schema_FoilLiteral
+                      quickfoil_schema_FoilPredicate
+                      quickfoil_schema_FoilVariable
+                      quickfoil_schema_TypeDefs
+                      quickfoil_storage_TableView
+                      quickfoil_types_TypeID
+                      quickfoil_types_TypeTraits
+                      quickfoil_utility_ElementDeleter
+                      quickfoil_utility_Macros
+                      quickfoil_utility_Vector)
+target_link_libraries(quickfoil_learner_QuickFoilTimer
+                      quickfoil_utility_Macros)
+add_executable(quickfoil_learner_CandidateLiteralEnumerator_test
+               CandidateLiteralEnumerator_test.cpp)
+
+target_link_libraries(quickfoil_learner_CandidateLiteralEnumerator_test
+                      glog
+                      gtest
+                      gtest_main
+                      quickfoil_learner_CandidateLiteralEnumerator
+                      quickfoil_learner_LiteralSearchStats
+                      quickfoil_schema_FoilClause
+                      quickfoil_schema_FoilParser
+                      quickfoil_schema_FoilPredicate
+                      quickfoil_utility_Macros
+                      quickfoil_utility_StringUtil
+                      quickfoil_utility_Vector)
+
+add_test(quickfoil_learner_CandidateLiteralEnumerator_test quickfoil_learner_CandidateLiteralEnumerator_test)
