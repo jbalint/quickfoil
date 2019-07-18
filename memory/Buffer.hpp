@@ -36,6 +36,14 @@ class Buffer {
         num_tuples_(num_tuples) {
   }
 
+    Buffer(
+           const std::size_t num_bytes,
+           std::size_t num_tuples,
+           void* data)
+            : data_(data),
+              num_tuples_(num_tuples) {
+    }
+
   Buffer(const std::shared_ptr<Buffer>& parent_buffer,
          void* data,
          std::size_t num_tuples)

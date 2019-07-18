@@ -39,9 +39,9 @@ class FoilParser {
 };
 
 int FoilParser::ReadInt(const std::string str) {
-  char* end = '\0';
+  char* end;
   const int id = std::strtol(str.c_str(), &end, 0);
-  DCHECK((errno != ERANGE) && end != str.c_str() && end != '\0') << str;
+  DCHECK((errno != ERANGE) && end != str.c_str() && end != nullptr) << str;
   return id;
 }
 

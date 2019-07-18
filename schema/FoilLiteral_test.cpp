@@ -12,8 +12,8 @@
 namespace quickfoil {
 
 TEST(FoilLiteralTest, FoilLiteralSetTest) {
-  FoilPredicate pred1(1, "p1", {0, 0, 1}, {nullptr, nullptr, nullptr});
-  FoilPredicate pred2(2, "p2", {1, 0, 1}, {nullptr, nullptr, nullptr});
+  FoilPredicate pred1(1, "p1", 0, {0, 0, 1}, {nullptr, nullptr, nullptr});
+  FoilPredicate pred2(2, "p2", 1, {1, 0, 1}, {nullptr, nullptr, nullptr});
 
   std::unordered_map<std::string, const FoilPredicate*> name_to_predicate_map
       {{"p1", &pred1}, {"p2", &pred2}};
