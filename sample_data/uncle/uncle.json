@@ -1,0 +1,44 @@
+/*
+The data is encoded to integers using phone keypad encoding with at least two digits:
+Andrew = 26
+Jacob = 522
+Jason = 527
+etc
+*/
+
+{
+  "target" : "uncle",
+  "background" : [
+    "brother",
+    "parent",
+    "sister"
+  ],
+  "test" : { // TODO : ???
+    "file" : "../sample_data/bongard/th3/100/fold_0/bongard_test",
+    "num_positive" : 10
+  },
+  "relations" : [
+    {
+      "name" : "uncle",
+      "num_positive" : 4,
+      "file" : "../sample_data/uncle/uncle",
+      "attributes" : [ { "domain_type" : 1 }, { "domain_type" : 1 } ]
+    },
+    {
+      "name" : "brother",
+      "file" : "../sample_data/uncle/brother",
+      "attributes" : [ { "domain_type" : 1 }, { "domain_type" : 1 } ]
+    },
+    {
+      "name" : "parent",
+      "file" : "../sample_data/uncle/parent",
+      "attributes" : [ { "domain_type" : 1 }, { "domain_type" : 1 } ]
+    }
+//  ,
+//    {
+//      "name" : "sister",
+//      "file" : "../sample_data/uncle/sister",
+//      "attributes" : [ { "domain_type" : 1 }, { "domain_type" : 1 } ]
+//    }
+  ]
+}
